@@ -77,3 +77,7 @@ C:\Users\truonggiang\source\repos\webdemo\webdemo\obj\Debug\webdemo.csproj.CoreC
 C:\Users\truonggiang\source\repos\webdemo\webdemo\obj\Debug\webdemo.csproj.CopyComplete
 C:\Users\truonggiang\source\repos\webdemo\webdemo\obj\Debug\webdemo.dll
 C:\Users\truonggiang\source\repos\webdemo\webdemo\obj\Debug\webdemo.pdb
+C:\Users\truonggiang\source\repos\webdemo\webdemo\bin\EntityFramework.dll
+C:\Users\truonggiang\source\repos\webdemo\webdemo\bin\EntityFramework.SqlServer.dll
+C:\Users\truonggiang\source\repos\webdemo\webdemo\bin\EntityFramework.xml
+C:\Users\truonggiang\source\repos\webdemo\webdemo\bin\EntityFramework.SqlServer.xml

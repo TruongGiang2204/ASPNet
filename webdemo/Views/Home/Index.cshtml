@@ -1,4 +1,9 @@
-﻿<!DOCTYPE HTML>
+﻿@model List<webdemo.Context.Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -29,8 +34,8 @@
 </head>
 <body>
 
-   
-    
+
+
 
     <div class="container">
         <!-- ========================= SECTION MAIN  ========================= -->
@@ -474,118 +479,24 @@
             <header class="section-heading heading-line">
                 <h4 class="title-section text-uppercase">Recommended items</h4>
             </header>
-
+           
             <div class="row row-sm">
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div href="#" class="card card-sm card-product-grid">
-                        <a href="#" class="img-wrap"> <img src="~/Content/images/items/1.jpg"> </a>
-                        <figcaption class="info-wrap">
-                            <a href="@Url.Action("Detail", "Product")" class="title">Just another product name</a>
-                            <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </div>
-                </div> <!-- col.// -->
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div href="#" class="card card-sm card-product-grid">
-                        <a href="#" class="img-wrap"> <img src="~/Content/images/items/2.jpg"> </a>
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title">Some item name here</a>
-                            <div class="price mt-1">$280.00</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </div>
-                </div> <!-- col.// -->
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div href="#" class="card card-sm card-product-grid">
-                        <a href="#" class="img-wrap"> <img src="~/Content/images/items/3.jpg"> </a>
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title">Great product name here</a>
-                            <div class="price mt-1">$56.00</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </div>
-                </div> <!-- col.// -->
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div href="#" class="card card-sm card-product-grid">
-                        <a href="#" class="img-wrap"> <img src="~/Content/images/items/4.jpg"> </a>
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title">Just another product name</a>
-                            <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </div>
-                </div> <!-- col.// -->
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div href="#" class="card card-sm card-product-grid">
-                        <a href="#" class="img-wrap"> <img src="~/Content/images/items/5.jpg"> </a>
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title">Just another product name</a>
-                            <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </div>
-                </div> <!-- col.// -->
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div href="#" class="card card-sm card-product-grid">
-                        <a href="#" class="img-wrap"> <img src="~/Content/images/items/6.jpg"> </a>
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title">Some item name here</a>
-                            <div class="price mt-1">$280.00</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </div>
-                </div> <!-- col.// -->
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div href="#" class="card card-sm card-product-grid">
-                        <a href="#" class="img-wrap"> <img src="~/Content/images/items/7.jpg"> </a>
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title">Great product name here</a>
-                            <div class="price mt-1">$56.00</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </div>
-                </div> <!-- col.// -->
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div href="#" class="card card-sm card-product-grid">
-                        <a href="#" class="img-wrap"> <img src="~/Content/images/items/9.jpg"> </a>
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title">Just another product name</a>
-                            <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </div>
-                </div> <!-- col.// -->
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div href="#" class="card card-sm card-product-grid">
-                        <a href="#" class="img-wrap"> <img src="~/Content/images/items/4.jpg"> </a>
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title">Just another product name</a>
-                            <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </div>
-                </div> <!-- col.// -->
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div href="#" class="card card-sm card-product-grid">
-                        <a href="#" class="img-wrap"> <img src="~/Content/images/items/5.jpg"> </a>
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title">Just another product name</a>
-                            <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </div>
-                </div> <!-- col.// -->
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div href="#" class="card card-sm card-product-grid">
-                        <a href="#" class="img-wrap"> <img src="~/Content/images/items/6.jpg"> </a>
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title">Some item name here</a>
-                            <div class="price mt-1">$280.00</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </div>
-                </div> <!-- col.// -->
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div href="#" class="card card-sm card-product-grid">
-                        <a href="#" class="img-wrap"> <img src="~/Content/images/items/7.jpg"> </a>
-                        <figcaption class="info-wrap">
-                            <a href="#" class="title">Great product name here</a>
-                            <div class="price mt-1">$56.00</div> <!-- price-wrap.// -->
-                        </figcaption>
-                    </div>
-                </div> <!-- col.// -->
-            </div> <!-- row.// -->
-        </section>
+                @foreach (var item in Model)
+                {
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                        <div href="#" class="card card-sm card-product-grid">
+                            <a href="#" class="img-wrap"> <img src="~/Content/images/items/@item.Image"> </a>
+                            <figcaption class="info-wrap">
+                                <a href="@Url.Action("Detail", "Product")" class="title">@item.Name</a>
+                                <div class="price mt-1">$@item.Price</div> <!-- price-wrap.// -->
+                            </figcaption>
+                        </div>
+                    </div> <!-- col.// -->
+                }
+                   
+                </div> <!-- row.// -->
+          
+            </section>
         <!-- =============== SECTION ITEMS .//END =============== -->
         <!-- =============== SECTION SERVICES =============== -->
         <section class="padding-bottom">
@@ -662,10 +573,17 @@
     </div>
     <!-- container end.// -->
     <!-- ========================= SECTION SUBSCRIBE  ========================= -->
-    
+
 
 
 
 
 </body>
 </html>
+
+@foreach(var item in Model)
+{
+ <div>
+    <p>@item.Name - @item.Price</p>
+ </div>
+}
