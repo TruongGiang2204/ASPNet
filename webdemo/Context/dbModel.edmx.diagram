@@ -5,15 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="cb298f49f3954fcc8dfddaf5cffe0444" Name="Diagram1">
-        <EntityTypeShape EntityType="WebASPModel.Brand" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebASPModel.Brand" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WebASPModel.Category" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="WebASPModel.Order" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="WebASPModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="WebASPModel.sysdiagram" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebASPModel.User" Width="1.5" PointX="7.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebASPModel.User" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
         <AssociationConnector Association="WebASPModel.FK_Product_Brand" ManuallyRouted="false" />
         <AssociationConnector Association="WebASPModel.FK_Product_Category" ManuallyRouted="false" />
         <AssociationConnector Association="WebASPModel.FK_Order_Product" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WebASPModel.OrderDetaill" Width="1.5" PointX="8" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

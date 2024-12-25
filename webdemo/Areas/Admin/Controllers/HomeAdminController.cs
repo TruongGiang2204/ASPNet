@@ -10,19 +10,19 @@ namespace webdemo.Areas.Admin.Controllers
     public class HomeAdminController : Controller
     {
         // GET: Admin/HomeAdmin
-        WebASPEntities2 objWebASPEntities = new WebASPEntities2();
+        //WebASPEntities2 objWebASPEntities = new WebASPEntities2();
         public ActionResult Index()
         {
-            if (Session["isUser"] != null)
-            {
-                var lstProduct = objWebASPEntities.Products.ToList();
-                return View(lstProduct);
-            }    
-            else
-            {
-                return View("Login");
-            }    
-            
+            //if (Session["isUser"] != null)
+            //{
+            //    var lstProduct = objWebASPEntities.Products.ToList();
+            //    return View(lstProduct);
+            //}    
+            //else
+            //{
+            //    return View("Login");
+            //}    
+            return View();
         }
     }
 }

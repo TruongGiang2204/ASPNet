@@ -79,7 +79,7 @@
                                             <h6 class="card-title">@category.Name</h6>
                                             <a href="@Url.Action("ProductByCategory", "Category", new { id = category.Id })" class="btn btn-secondary btn-sm">Source now</a>
                                         </div>
-                                        <img src="~/Content/images/items/@category.Image" height="80" class="img-bg">
+                                        <img src="~/Content/images/category/@category.Image" height="80" class="img-bg">
                                     </div>
                                 }
                             </aside>
@@ -112,11 +112,11 @@
                     {
                         <div class="col-md col-6">
                             <figure class="card-product-grid card-sm">
-                                <a href="@Url.Action("ProductByCategory", "Category")" class="img-wrap">
-                                    <img src="~/Content/images/items/@item.Image">
+                                <a href="@Url.Action("Detail", "Product", new { id = item.id })" class="img-wrap">
+                                    <img src="~/Content/images/products/@item.Image">
                                 </a>
                                 <div class="text-wrap p-3">
-                                    <a href="@Url.Action("ProductByCategory", "Category")" class="title">@item.Name</a>
+                                    <a href="@Url.Action("Detail", "Product" , new { id = item.id }))" class="title">@item.Name</a>
                                     <span class="badge badge-danger"> -20% </span>
                                 </div>
                             </figure>
@@ -153,7 +153,7 @@
                                     <a href="#" class="item">
                                         <div class="card-body">
                                             <h6 class="title">@item.FullDescription</h6>
-                                            <img class="img-sm float-right" src="~/Content/images/items/@item.Image">
+                                            <img class="img-sm float-right" src="~/Content/images/products/@item.Image">
                                             <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
                                         </div>
                                     </a>
@@ -191,7 +191,7 @@
                                     <a href="#" class="item">
                                         <div class="card-body">
                                             <h6 class="title">@item.FullDescription</h6>
-                                            <img class="img-sm float-right" src="~/Content/images/items/@item.Image">
+                                            <img class="img-sm float-right" src="~/Content/images/products/@item.Image">
                                             <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
                                         </div>
                                     </a>
@@ -279,7 +279,7 @@
                     <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                         <div class="card card-sm card-product-grid">
                             <a href="@Url.Action("Detail", "Product", new { id = product.id })" class="img-wrap">
-                                <img src="~/Content/images/items/@product.Image" alt="@product.Name">
+                                <img src="~/Content/images/products/@product.Image" alt="@product.Name">
                             </a>
                             <figcaption class="info-wrap">
                                 <a href="@Url.Action("Detail", "Product", new { id = product.id })" class="title">@product.Name</a>

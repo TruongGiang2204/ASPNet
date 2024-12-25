@@ -1,6 +1,9 @@
-﻿
+﻿@model List<webdemo.Context.Product>
+
+
+
 @{
-    ViewBag.Title = "ProductByCategory";
+    ViewBag.Title = "ProductCategory";
 }
 
 <section class="section-content padding-y">
@@ -27,7 +30,7 @@
                     <h6 class="title">
                         <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_1">	 Product type </a>
                     </h6>
-                    <div class="filter-content collapse show" id="collapse_1" style="">
+                    <div class="filter-content collapse show" id="collapse_1">
                         <div class="inner">
                             <ul class="list-menu">
                                 <li><a href="#">Shorts  </a></li>
@@ -187,347 +190,75 @@
                     </div>
                 </header><!-- sect-heading -->
 
+                @foreach (var item in Model)
+                {<article class="card card-product-list">
+                        <div class="row no-gutters">
+                            <aside class="col-md-3">
+                                <a href="#" class="img-wrap">
+                                    <span class="badge badge-danger"> NEW </span>
+                                    <img src="~/Content/images/products/@item.Image">
+                                </a>
+                            </aside> <!-- col.// -->
+                            <div class="col-md-6">
+                                <div class="info-main">
+                                    <a href="#" class="h5 title"> @item.Name</a>
+                                    <div class="rating-wrap mb-2">
+                                        <ul class="rating-stars">
+                                            <li style="width:100%" class="stars-active">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </li>
+                                        </ul>
+                                        <div class="label-rating">9/10</div>
+                                    </div> <!-- rating-wrap.// -->
 
-                <article class="card card-product-list">
-                    <div class="row no-gutters">
-                        <aside class="col-md-3">
-                            <a href="#" class="img-wrap">
-                                <span class="badge badge-danger"> NEW </span>
-                                <img src="~/content/images/items/1.jpg">
-                            </a>
-                        </aside> <!-- col.// -->
-                        <div class="col-md-6">
-                            <div class="info-main">
-                                <a href="#" class="h5 title"> Hot sale unisex New Design Shirt</a>
-                                <div class="rating-wrap mb-2">
-                                    <ul class="rating-stars">
-                                        <li style="width:100%" class="stars-active">
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                    </ul>
-                                    <div class="label-rating">9/10</div>
-                                </div> <!-- rating-wrap.// -->
+                                    <p class="mb-3">
+                                        <span class="tag"> <i class="fa fa-check"></i> Verified</span>
+                                        <span class="tag"> 5 Years </span>
+                                        <span class="tag"> 80 reviews </span>
+                                        <span class="tag"> Russia </span>
+                                    </p>
 
-                                <p class="mb-3">
-                                    <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                                    <span class="tag"> 5 Years </span>
-                                    <span class="tag"> 80 reviews </span>
-                                    <span class="tag"> Russia </span>
-                                </p>
+                                    <p>
+                                        @item.FullDescription
 
-                                <p>
-                                    Take it as demo specs, ipsum dolor sit amet, consectetuer adipiscing elit, Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Ut wisi enim ad minim  sint occaecat cupidatat non
-                                    proident, sunt in culpa qui laborum....
-                                </p>
+                                </div> <!-- info-main.// -->
+                            </div> <!-- col.// -->
+                            <aside class="col-sm-3">
+                                <div class="info-aside">
+                                    <div class="price-wrap">
+                                        <span class="h5 price">@item.Price</span>
+                                        <small class="text-muted">/per item</small>
+                                    </div> <!-- price-wrap.// -->
+                                    <small class="text-warning">Paid shipping</small>
 
-                            </div> <!-- info-main.// -->
-                        </div> <!-- col.// -->
-                        <aside class="col-sm-3">
-                            <div class="info-aside">
-                                <div class="price-wrap">
-                                    <span class="h5 price">$25.00-$40.00</span>
-                                    <small class="text-muted">/per item</small>
-                                </div> <!-- price-wrap.// -->
-                                <small class="text-warning">Paid shipping</small>
+                                    <p class="text-muted mt-3">Grand textile Co</p>
+                                    <p class="mt-3">
+                                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
+                                        <a href="#" class="btn btn-light"><i class="fa fa-heart"></i> Save </a>
+                                    </p>
 
-                                <p class="text-muted mt-3">Grand textile Co</p>
-                                <p class="mt-3">
-                                    <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-                                    <a href="#" class="btn btn-light"><i class="fa fa-heart"></i> Save </a>
-                                </p>
+                                    <label class="custom-control mt-3 custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input">
+                                        <div class="custom-control-label">
+                                            Add to compare
+                                        </div>
+                                    </label>
 
-                                <label class="custom-control mt-3 custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input">
-                                    <div class="custom-control-label">
-                                        Add to compare
-                                    </div>
-                                </label>
-
-                            </div> <!-- info-aside.// -->
-                        </aside> <!-- col.// -->
-                    </div> <!-- row.// -->
-                </article> <!-- card-product .// -->
-
-
-
-                <article class="card card-product-list">
-                    <div class="row no-gutters">
-                        <aside class="col-md-3">
-                            <a href="#" class="img-wrap">
-                                <img src="~/content/images/items/2.jpg">
-                            </a>
-                        </aside> <!-- col.// -->
-                        <div class="col-md-6">
-                            <div class="info-main">
-                                <a href="#" class="h5 title"> High Quality Winter PU Rain Jacket  </a>
-                                <div class="rating-wrap mb-2">
-                                    <ul class="rating-stars">
-                                        <li style="width:80%" class="stars-active">
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                    </ul>
-                                    <div class="label-rating">7/10</div>
-                                </div> <!-- rating-wrap.// -->
-
-                                <p class="mb-3">
-                                    <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                                    <span class="tag"> 2 Years </span>
-                                    <span class="tag"> 30 reviews </span>
-                                    <span class="tag"> Japan </span>
-                                </p>
-
-                                <p>
-                                    Take it as demo specs, ipsum dolor sit amet, consectetuer adipiscing elit, Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Ut wisi enim ad minim  sint occaecat cupidatat non
-                                    proident, sunt in culpa qui laborum....
-                                </p>
-
-                            </div> <!-- info-main.// -->
-                        </div> <!-- col.// -->
-                        <aside class="col-sm-3">
-                            <div class="info-aside">
-                                <div class="price-wrap">
-                                    <span class="h5 price">$65.00-$70.00</span>
-                                    <small class="text-muted">/per item</small>
-                                </div> <!-- price-wrap.// -->
-                                <small class="text-success">Free shipping</small>
-
-                                <p class="text-muted mt-3">Guangzhou textile Ltd</p>
-                                <p class="mt-3">
-                                    <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-                                    <a href="#" class="btn btn-light"><i class="fa fa-heart"></i> Save </a>
-                                </p>
-
-                                <label class="custom-control mt-3 custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input">
-                                    <div class="custom-control-label">
-                                        Add to compare
-                                    </div>
-                                </label>
-
-                            </div> <!-- info-aside.// -->
-                        </aside> <!-- col.// -->
-                    </div> <!-- row.// -->
-                </article> <!-- card-product .// -->
+                                </div> <!-- info-aside.// -->
+                            </aside> <!-- col.// -->
+                        </div> <!-- row.// -->
+                    </article> <!-- card-product .// -->}
 
 
 
 
-                <article class="card card-product-list">
-                    <div class="row no-gutters">
-                        <aside class="col-md-3">
-                            <a href="#" class="img-wrap">
-                                <img src="~/content/images/items/3.jpg">
-                            </a>
-                        </aside> <!-- col.// -->
-                        <div class="col-md-6">
-                            <div class="info-main">
-                                <a href="#" class="h5 title"> Great product name goes here  </a>
-                                <div class="rating-wrap mb-2">
-                                    <ul class="rating-stars">
-                                        <li style="width:20%" class="stars-active">
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                    </ul>
-                                    <div class="label-rating">2/10</div>
-                                </div> <!-- rating-wrap.// -->
-
-                                <p class="mb-3">
-                                    <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                                    <span class="tag"> 4 Years </span>
-                                    <span class="tag"> 60 reviews </span>
-                                    <span class="tag"> China </span>
-                                </p>
-
-                                <p>
-                                    Take it as demo specs, ipsum dolor sit amet, consectetuer adipiscing elit, Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Ut wisi enim ad minim  sint occaecat cupidatat non
-                                    proident, sunt in culpa qui laborum....
-                                </p>
-
-                            </div> <!-- info-main.// -->
-                        </div> <!-- col.// -->
-                        <aside class="col-sm-3">
-                            <div class="info-aside">
-                                <div class="price-wrap">
-                                    <span class="h5 price">$325.00-$390.00</span>
-                                    <small class="text-muted">/per bag</small>
-                                </div> <!-- price-wrap.// -->
-                                <small class="text-success">Free shipping</small>
-
-                                <p class="text-muted mt-3">Guangzhou Electronic Co</p>
-                                <p class="mt-3">
-                                    <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-                                    <a href="#" class="btn btn-light"><i class="fa fa-heart"></i> Save </a>
-                                </p>
-
-                                <label class="custom-control mt-3 custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input">
-                                    <div class="custom-control-label">
-                                        Add to compare
-                                    </div>
-                                </label>
-
-                            </div> <!-- info-aside.// -->
-                        </aside> <!-- col.// -->
-                    </div> <!-- row.// -->
-                </article> <!-- card-product .// -->
-
-
-
-
-                <article class="card card-product-list">
-                    <div class="row no-gutters">
-                        <aside class="col-md-3">
-                            <a href="#" class="img-wrap">
-                                <img src="~/content/images/items/4.jpg">
-                            </a>
-                        </aside> <!-- col.// -->
-                        <div class="col-md-6">
-                            <div class="info-main">
-                                <a href="#" class="h5 title"> Best demo clothe with latest Fashion  </a>
-                                <div class="rating-wrap mb-2">
-                                    <ul class="rating-stars">
-                                        <li style="width:50%" class="stars-active">
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                    </ul>
-                                    <div class="label-rating">5/10</div>
-                                </div> <!-- rating-wrap.// -->
-
-                                <p class="mb-3">
-                                    <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                                    <span class="tag"> 4 Years </span>
-                                    <span class="tag"> 60 reviews </span>
-                                    <span class="tag"> China </span>
-                                </p>
-
-                                <p>
-                                    Take it as demo specs, ipsum dolor sit amet, consectetuer adipiscing elit, Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Ut wisi enim ad minim  sint occaecat cupidatat non
-                                    proident, sunt in culpa qui laborum....
-                                </p>
-
-                            </div> <!-- info-main.// -->
-                        </div> <!-- col.// -->
-                        <aside class="col-sm-3">
-                            <div class="info-aside">
-                                <div class="price-wrap">
-                                    <span class="h5 price">$325.00-$390.00</span>
-                                    <small class="text-muted">/per bag</small>
-                                </div> <!-- price-wrap.// -->
-                                <small class="text-success">Free shipping</small>
-
-                                <p class="text-muted mt-3">Guangzhou Electronic Co</p>
-                                <p class="mt-3">
-                                    <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-                                    <a href="#" class="btn btn-light"><i class="fa fa-heart"></i> Save </a>
-                                </p>
-
-                                <label class="custom-control mt-3 custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input">
-                                    <div class="custom-control-label">
-                                        Add to compare
-                                    </div>
-                                </label>
-
-                            </div> <!-- info-aside.// -->
-                        </aside> <!-- col.// -->
-                    </div> <!-- row.// -->
-                </article> <!-- card-product .// -->
-
-
-
-                <article class="card card-product-list">
-                    <div class="row no-gutters">
-                        <aside class="col-md-3">
-                            <a href="#" class="img-wrap">
-                                <img src="~/content/images/items/3.jpg">
-                            </a>
-                        </aside> <!-- col.// -->
-                        <div class="col-md-6">
-                            <div class="info-main">
-                                <a href="#" class="h5 title"> Great product name goes here  </a>
-                                <div class="rating-wrap mb-2">
-                                    <ul class="rating-stars">
-                                        <li style="width:80%" class="stars-active">
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                    </ul>
-                                    <div class="label-rating">7/10</div>
-                                </div> <!-- rating-wrap.// -->
-
-                                <p class="mb-3">
-                                    <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                                    <span class="tag"> 4 Years </span>
-                                    <span class="tag"> 60 reviews </span>
-                                    <span class="tag"> China </span>
-                                </p>
-
-                                <p>
-                                    Take it as demo specs, ipsum dolor sit amet, consectetuer adipiscing elit, Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Ut wisi enim ad minim  sint occaecat cupidatat non
-                                    proident, sunt in culpa qui laborum....
-                                </p>
-
-                            </div> <!-- info-main.// -->
-                        </div> <!-- col.// -->
-                        <aside class="col-sm-3">
-                            <div class="info-aside">
-                                <div class="price-wrap">
-                                    <span class="h5 price">$325.00-$390.00</span>
-                                    <small class="text-muted">/per bag</small>
-                                </div> <!-- price-wrap.// -->
-                                <small class="text-success">Free shipping</small>
-
-                                <p class="text-muted mt-3">Guangzhou Electronic Co</p>
-                                <p class="mt-3">
-                                    <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-                                    <a href="#" class="btn btn-light"><i class="fa fa-heart"></i> Save </a>
-                                </p>
-
-                                <label class="custom-control mt-3 custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input">
-                                    <div class="custom-control-label">
-                                        Add to compare
-                                    </div>
-                                </label>
-
-                            </div> <!-- info-aside.// -->
-                        </aside> <!-- col.// -->
-                    </div> <!-- row.// -->
-                </article> <!-- card-product .// -->
 
 
                 <nav class="mb-4" aria-label="Page navigation sample">
@@ -556,4 +287,29 @@
 
     </div> <!-- container .//  -->
 </section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+<!-- ========================= SECTION SUBSCRIBE  ========================= -->
+<section class="padding-y-lg bg-light border-top">
+    <div class="container">
+
+        <p class="pb-2 text-center">Delivering the latest product trends and industry news straight to your inbox</p>
+
+        <div class="row justify-content-md-center">
+            <div class="col-lg-4 col-sm-6">
+                <form class="form-row">
+                    <div class="col-8">
+                        <input class="form-control" placeholder="Your Email" type="email">
+                    </div> <!-- col.// -->
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Subscribe </button>
+                    </div> <!-- col.// -->
+                </form>
+                <small class="form-text">We’ll never share your email address with a third-party. </small>
+            </div> <!-- col-md-6.// -->
+        </div>
+
+
+    </div>
+</section>
+<!-- ======
 
