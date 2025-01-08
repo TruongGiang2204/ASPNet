@@ -12,8 +12,8 @@ namespace webdemo.Controllers
 {
     public class UserController : Controller
     {
-        
-        WebASPEntities2 objWebASPEntities = new WebASPEntities2();
+
+        WebASPNetEntities objWebASPEntities = new WebASPNetEntities();
         // GET: User
 
         public ActionResult Register()
@@ -77,23 +77,23 @@ namespace webdemo.Controllers
         {
             if (ModelState.IsValid)
             {
-
-
                 var f_password = GetMD5(password);
                 var data = objWebASPEntities.Users.Where(s => s.Email.Equals(email) && s.Password.Equals(f_password)).ToList();
                 if (data.Count() > 0)
                 {
                     // Add session
-                    Session["FullName"] = data.FirstOrDefault().FirstName + " " + data.FirstOrDefault().LastName;
+                    Session["FullName"] = data.FirstOrDefault().LastName  + " " + data.FirstOrDefault().FirstName;
                     Session["Email"] = data.FirstOrDefault().Email;
                     Session["idUser"] = data.FirstOrDefault().Id;
+                    //Session["isUser"] = true;
 
-                    // Đặt cờ trạng thái đăng nhập
-                    Session["isUser"] = true;
+                    // Log session values for debugging
+                    System.Diagnostics.Debug.WriteLine("Session FullName: " + Session["FullName"]);
+                    System.Diagnostics.Debug.WriteLine("Session Email: " + Session["Email"]);
+                    System.Diagnostics.Debug.WriteLine("Session idUser: " + Session["idUser"]);
 
                     return RedirectToAction("Index", "Home");
                 }
-
                 else
                 {
                     ViewBag.error = "Login failed";
@@ -102,6 +102,7 @@ namespace webdemo.Controllers
             }
             return View();
         }
+
 
 
         //Logout

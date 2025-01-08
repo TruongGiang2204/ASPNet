@@ -81,3 +81,7 @@ C:\Users\truonggiang\source\repos\webdemo\webdemo\bin\EntityFramework.dll
 C:\Users\truonggiang\source\repos\webdemo\webdemo\bin\EntityFramework.SqlServer.dll
 C:\Users\truonggiang\source\repos\webdemo\webdemo\bin\EntityFramework.xml
 C:\Users\truonggiang\source\repos\webdemo\webdemo\bin\EntityFramework.SqlServer.xml
+C:\Users\truonggiang\source\repos\webdemo\webdemo\bin\PagedList.dll
+C:\Users\truonggiang\source\repos\webdemo\webdemo\bin\PagedList.Mvc.dll
+C:\Users\truonggiang\source\repos\webdemo\webdemo\bin\PagedList.xml
+C:\Users\truonggiang\source\repos\webdemo\webdemo\bin\PagedList.Mvc.xml

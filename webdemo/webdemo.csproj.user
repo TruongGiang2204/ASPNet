@@ -23,7 +23,7 @@
     <_SelectedScaffolderID>MvcAreaScaffolder</_SelectedScaffolderID>
     <_SelectedScaffolderCategoryPath>root/Common/MVC/Area</_SelectedScaffolderCategoryPath>
     <WebStackScaffolding_AreaDialogWidth>600</WebStackScaffolding_AreaDialogWidth>
-    <WebStackScaffolding_DbContextTypeFullName>webdemo.Context.WebASPEntities2</WebStackScaffolding_DbContextTypeFullName>
+    <WebStackScaffolding_DbContextTypeFullName>webdemo.Context.WebASPNetEntities</WebStackScaffolding_DbContextTypeFullName>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

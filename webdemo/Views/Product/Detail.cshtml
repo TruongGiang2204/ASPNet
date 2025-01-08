@@ -13,7 +13,7 @@
         $("#addtocart").click(function () {
             var model = {};
             //lấy id sản phẩm
-            model.Id = @Model.id;
+            model.id = @Model.Id;
             // lấy số lượng đặt hàng
             model.Quantity = $("#ipQuantity").val();
             debugger;
@@ -85,8 +85,8 @@
                         <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> 154 orders </small>
                     </div> <!-- rating-wrap.// -->
                     <div class="mb-3">
-                        <var class="price h4">@Model.Price</var>
-                        <span class="text-muted">USD 562.65 incl. VAT</span>
+                        <var class="price h4"> @Convert.ToDecimal(Model.Price).ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN"))</var>
+                       
                     </div> <!-- price-detail-wrap .// -->
                     <p>
                         @Model.ShortDes
@@ -131,7 +131,10 @@
         <div class="row">
             <div class="col-md-8">
                 <h5 class="title-description">Description</h5>
-                @Model.FullDescription
+                @Model.ShortDes
+                <p>
+                    @Model.FullDescription
+                </p>
             </div> <!-- col.// -->
 
             <aside class="col-md-4">

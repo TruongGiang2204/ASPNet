@@ -10,7 +10,7 @@ namespace webdemo.Areas.Admin.Controllers
     public class HomeAdminController : Controller
     {
         // GET: Admin/HomeAdmin
-        //WebASPEntities2 objWebASPEntities = new WebASPEntities2();
+        //WebASPNetEntities objWebASPEntities = new WebASPNetEntities();
         public ActionResult Index()
         {
             //if (Session["isUser"] != null)

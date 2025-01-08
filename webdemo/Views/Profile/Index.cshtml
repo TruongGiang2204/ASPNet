@@ -16,13 +16,12 @@
         <div class="row">
             <aside class="col-md-3">
                 <nav class="list-group">
-                    <a class="list-group-item active" href="@Url.Action("Index", "Profile")"> Account overview  </a>
-                    <a class="list-group-item" href="@Url.Action("Address", "Profile")"> My Address </a>
-                    <a class="list-group-item" href="@Url.Action("Orders", "Profile")"> My Orders </a>
-                    <a class="list-group-item" href="@Url.Action("Wishlist", "Profile")"> My wishlist </a>
-                    <a class="list-group-item" href="@Url.Action("SellingItems", "Profile")"> My Selling Items </a>
+                    <a class="list-group-item active" href="@Url.Action("Index", "Profile")"> Tổng quan  </a>
+                    <a class="list-group-item" href="@Url.Action("Address", "Profile")"> Địa chỉ </a>
+                    <a class="list-group-item" href="@Url.Action("Orders", "Profile")"> Đơn hàng </a>
+                    
                     <a class="list-group-item " href="@Url.Action("AccountSetting", "Profile")"> Settings </a>
-                    <a class="list-group-item" href="@Url.Action("Logout", "User")"> Log out </a>
+                    <a class="list-group-item" href="@Url.Action("Logout", "User")"> Đăng xuất </a>
                 </nav>
             </aside> <!-- col.// -->
             <main class="col-md-9">
@@ -35,8 +34,8 @@
                                 <img class="rounded-circle img-sm border" src="~/content/images/avatars/avatar3.jpg">
                             </div>
                             <div class="text">
-                                <strong> Mr. Jackson Someone </strong> <br>
-                                <p class="mb-2"> myloginname@gmail.com  </p>
+                                <strong> @Session["FullName"] </strong> <br>
+                                <p class="mb-2">@Session["Email"]  </p>
                                 <a href="#" class="btn btn-light btn-sm">Edit</a>
                             </div>
                         </figure>

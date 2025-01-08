@@ -11,7 +11,7 @@ namespace ChuyenDeASPNET.Controllers
     public class PaymentController : Controller
     {
         // GET: Payment
-        WebASPEntities2 objWebASPEntities = new WebASPEntities2();
+        WebASPNetEntities objWebASPEntities = new WebASPNetEntities();
         public ActionResult Index()
         {
             if (Session["idUser"] == null)
@@ -25,8 +25,8 @@ namespace ChuyenDeASPNET.Controllers
 
                 // tạo dữ liệu cho Order
                 Order objOrder = new Order();
-                objOrder.Name = "DonHang-" + DateTime.Now.ToString("yyyyMMddHHmmss");
-                //objOrder.UserId = int.Parse(Session["idUser"].ToString());
+                objOrder.name = "DonHang-" + DateTime.Now.ToString("yyyyMMddHHmmss");
+                objOrder.UserId = int.Parse(Session["idUser"].ToString());
                 objOrder.CreatedOnUtc = DateTime.Now;
                 objOrder.Status = 17;
 
@@ -37,18 +37,18 @@ namespace ChuyenDeASPNET.Controllers
 
                 // Lấy OrderId vừa tạo để lưu vào bảng OrderDetail
                 int orderId = objOrder.Id;
-                List<OrderDetaill> lstOrderDetail = new List<OrderDetaill>();
+                List<OrderDetail> lstOrderDetail = new List<OrderDetail>();
 
                 foreach (var item in istCart)
                 {
-                    OrderDetaill obj = new OrderDetaill();
+                    OrderDetail obj = new OrderDetail();
                     obj.Quantity = item.Quantity;
                     obj.OrderId = orderId;
-                    obj.ProductId = item.Product.id;
+                    obj.ProductId = item.Product.Id;
                     lstOrderDetail.Add(obj);
                 }
 
-                objWebASPEntities.OrderDetaills.AddRange(lstOrderDetail);
+                objWebASPEntities.OrderDetails.AddRange(lstOrderDetail);
                 objWebASPEntities.SaveChanges();
             }
 

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="WebASPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="WebASPNetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Brand">
     <Key>
       <PropertyRef Name="Id" />
@@ -7,7 +7,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Slug" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Slug" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="ShowOnHomePage" Type="Boolean" />
     <Property Name="DisplayOrder" Type="Int32" />
     <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
@@ -21,50 +21,61 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Image" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-    <Property Name="Slug" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Slug" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="ShowOnHomePage" Type="Boolean" />
     <Property Name="DisplayOrder" Type="Int32" />
     <Property Name="Deleted" Type="Boolean" />
     <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
-    <Property Name="UpdatedOnUtc" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOnutc" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Products" Relationship="Self.FK_Product_Category" FromRole="Category" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_OrderDetail_Orders" FromRole="OrderDetail" ToRole="Orders" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_OrderDetail_Product" FromRole="OrderDetail" ToRole="Product" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="ProductId" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" />
     <Property Name="Status" Type="Int32" />
-    <Property Name="Price" Type="Double" />
     <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Order_Product" FromRole="Order" ToRole="Product" />
+    <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetail_Orders" FromRole="Orders" ToRole="OrderDetail" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Orders_Users" FromRole="Orders" ToRole="Users" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CategoryId" Type="Int32" />
     <Property Name="BrandId" Type="Int32" />
-    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="TypeId" Type="Int32" />
     <Property Name="ShortDes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="FullDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="Price" Type="Double" />
     <Property Name="PriceDiscount" Type="Double" />
-    <Property Name="Slug" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Slug" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Deleted" Type="Boolean" />
     <Property Name="ShowOnHomePage" Type="Boolean" />
     <Property Name="DisplayOrder" Type="Int32" />
     <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
     <Property Name="UpdatedOnUtc" Type="DateTime" Precision="3" />
-    <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Brand" Relationship="Self.FK_Product_Brand" FromRole="Product" ToRole="Brand" />
     <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Product" FromRole="Product" ToRole="Order" />
+    <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetail_Product" FromRole="Product" ToRole="OrderDetail" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -81,11 +92,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IsAdmin" Type="Boolean" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Users" FromRole="Users" ToRole="Orders" />
   </EntityType>
   <Association Name="FK_Product_Brand">
     <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
@@ -111,21 +123,46 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Order_Product">
+  <Association Name="FK_OrderDetail_Orders">
+    <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_Product">
     <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Order">
+      <Dependent Role="OrderDetail">
         <PropertyRef Name="ProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="WebASPEntities2" annotation:LazyLoadingEnabled="true">
+  <Association Name="FK_Orders_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WebASPNetEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Brands" EntityType="Self.Brand" />
     <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
     <EntitySet Name="Orders" EntityType="Self.Order" />
     <EntitySet Name="Products" EntityType="Self.Product" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
@@ -138,19 +175,17 @@
       <End Role="Category" EntitySet="Categories" />
       <End Role="Product" EntitySet="Products" />
     </AssociationSet>
-    <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
-      <End Role="Product" EntitySet="Products" />
-      <End Role="Order" EntitySet="Orders" />
+    <AssociationSet Name="FK_OrderDetail_Orders" Association="Self.FK_OrderDetail_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
     </AssociationSet>
-    <EntitySet Name="OrderDetaills" EntityType="WebASPModel.OrderDetaill" />
+    <AssociationSet Name="FK_OrderDetail_Product" Association="Self.FK_OrderDetail_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Users" Association="Self.FK_Orders_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="OrderDetaill">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="OrderId" Type="Int32" />
-    <Property Name="ProductId" Type="Int32" />
-    <Property Name="Quantity" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-  </EntityType>
 </Schema>

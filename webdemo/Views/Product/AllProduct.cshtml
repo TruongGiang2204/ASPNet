@@ -1,30 +1,33 @@
-﻿
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<webdemo.Context.Product>
 @{
     ViewBag.Title = "AllProduct";
 }
+
 
 <section class="section-content padding-y">
     <div class="container">
 
 
         <!-- ============================  FILTER TOP  ================================= -->
-        <div class="card mb-3">
+        <!--<div class="card mb-3">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-2"> Your are here: </div> <!-- col.// -->
-                    <nav class="col-md-8">
+                    <div class="col-md-2"> Your are here: </div>--> <!-- col.// -->
+                    <!--<nav class="col-md-8">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Category name</a></li>
                             <li class="breadcrumb-item"><a href="#">Sub category</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Items</li>
                         </ol>
-                    </nav> <!-- col.// -->
-                </div> <!-- row.// -->
-                <hr>
+                    </nav>--> <!-- col.// -->
+                <!--</div>--> <!-- row.// -->
+                <!--<hr>
                 <div class="row">
-                    <div class="col-md-2">Filter by</div> <!-- col.// -->
-                    <div class="col-md-10">
+                    <div class="col-md-2">Filter by</div>--> <!-- col.// -->
+                    <!--<div class="col-md-10">
                         <ul class="list-inline">
                             <li class="list-inline-item mr-3 dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">   Supplier type </a>
@@ -38,8 +41,8 @@
                                     <label class="form-check">
                                         <input type="radio" name="myfilter" class="form-check-input"> New supplier
                                     </label>
-                                </div> <!-- dropdown-menu.// -->
-                            </li>
+                                </div>--> <!-- dropdown-menu.// -->
+                            <!--</li>
                             <li class="list-inline-item mr-3 dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">  Country </a>
                                 <div class="dropdown-menu p-3">
@@ -47,8 +50,8 @@
                                     <label class="form-check">   	 <input type="checkbox" class="form-check-input"> Japan      </label>
                                     <label class="form-check">    <input type="checkbox" class="form-check-input"> Uzbekistan  </label>
                                     <label class="form-check">  <input type="checkbox" class="form-check-input"> Russia     </label>
-                                </div> <!-- dropdown-menu.// -->
-                            </li>
+                                </div>--> <!-- dropdown-menu.// -->
+                            <!--</li>
                             <li class="list-inline-item mr-3 dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Feature</a>
                                 <div class="dropdown-menu">
@@ -77,10 +80,10 @@
                                 </label>
                             </li>
                         </ul>
-                    </div> <!-- col.// -->
-                </div> <!-- row.// -->
-            </div> <!-- card-body .// -->
-        </div> <!-- card.// -->
+                    </div>--> <!-- col.// -->
+                <!--</div>--> <!-- row.// -->
+            <!--</div>--> <!-- card-body .// -->
+        <!--</div>--> <!-- card.// -->
         <!-- ============================ FILTER TOP END.// ================================= -->
 
         <header class="mb-3">
@@ -104,480 +107,103 @@
         </header><!-- sect-heading -->
 
         <div class="row">
-            <div class="col-md-3">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <span class="badge badge-danger"> NEW </span>
-                        <img src="~/content/images/items/1.jpg">
-                    </div> <!-- img-wrap.// -->
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title mb-2">Hot sale unisex New Design Shirt for sport polo shirts latest design</a>
-                        <div class="price-wrap">
-                            <span class="price">$32.00-$40.00</span>
-                            <small class="text-muted">/per item</small>
-                        </div> <!-- price-wrap.// -->
-
-                        <p class="mb-2"> 2 Pieces  <small class="text-muted">(Min Order)</small></p>
-
-                        <p class="text-muted ">Guangzhou Yichuang Electronic Co</p>
-
-                        <hr>
-
-                        <p class="mb-3">
-                            <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                            <span class="tag"> 2 Years </span>
-                            <span class="tag"> 23 reviews </span>
-                            <span class="tag"> Japan </span>
-                        </p>
-
-                        <label class="custom-control mb-3 custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <div class="custom-control-label">
-                                Add to compare
+            @foreach (var product in Model)
+            {
+                <div class="col-md-3">
+                    <figure class="card card-product-grid">
+                        <div class="img-wrap">
+                            <span class="badge badge-danger"> NEW </span>
+                            <img src="~/Content/images/products/@product.Image">
+                        </div> <!-- img-wrap.// -->
+                        <figcaption class="info-wrap">
+                            <a href="#" class="title mb-2">@product.Name</a>
+                            <div class="price-wrap">
+                                <span class="price"> @Convert.ToDecimal(product.PriceDiscount).ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN"))</span>
+                               
                             </div>
-                        </label>
 
-                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
+                            <p class="mb-2"> @Convert.ToDecimal(product.Price).ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN"))</p>
 
-                    </figcaption>
-                </figure>
-            </div> <!-- col.// -->
+                            <p class="text-muted ">@product.ShortDes</p>
 
-            <div class="col-md-3">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <img src="~/content/images/items/2.jpg">
-                    </div> <!-- img-wrap.// -->
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title mb-2">High Quality Winter PU Rain Jacket with Padding for Men's outdoor</a>
-                        <div class="price-wrap">
-                            <span class="price">$50.00-$75.00</span>
-                            <small class="text-muted">/per item</small>
-                        </div> <!-- price-wrap.// -->
+                            <hr>
 
-                        <p class="mb-2"> 4 Pieces  <small class="text-muted">(Min Order)</small></p>
+                            <p class="mb-3">
+                                <span class="tag"> <i class="fa fa-check"></i> Verified</span>
+                                <span class="tag"> 2 Years </span>
+                                <span class="tag"> 23 reviews </span>
+                                <span class="tag"> Japan </span>
+                            </p>
 
-                        <p class="text-muted ">Great manufacturer Co ltd.</p>
+                            <label class="custom-control mb-3 custom-checkbox">
+                                <input type="checkbox" class="custom-control-input">
+                                <div class="custom-control-label">
+                                    Add to compare
+                                </div>
+                            </label>
 
-                        <hr>
+                            <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
 
-                        <p class="mb-3">
-                            <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                            <span class="tag"> 3 Years </span>
-                            <span class="tag"> 70 reviews </span>
-                            <span class="tag"> Russia </span>
-                        </p>
+                        </figcaption>
+                    </figure>
+                </div> <!-- col.// -->
+            }
 
-                        <label class="custom-control mb-3 custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <div class="custom-control-label">
-                                Add to compare
-                            </div>
-                        </label>
-
-                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-
-                    </figcaption>
-                </figure>
-            </div> <!-- col.// -->
-
-            <div class="col-md-3">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <img src="~/content/images/items/3.jpg">
-                    </div> <!-- img-wrap.// -->
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title mb-2">Cheap and Best demo clothe with latest Fashion styles for Men</a>
-                        <div class="price-wrap">
-                            <span class="price">$425.00-$490.00</span>
-                            <small class="text-muted">/per bag</small>
-                        </div> <!-- price-wrap.// -->
-
-                        <p class="mb-2"> 2 Pieces  <small class="text-muted">(Min Order)</small></p>
-
-                        <p class="text-muted ">Best textile company Ltd.</p>
-
-                        <hr>
-
-                        <p class="mb-3">
-                            <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                            <span class="tag"> 7 Years </span>
-                            <span class="tag"> 34 reviews </span>
-                            <span class="tag"> Russia </span>
-                        </p>
-
-                        <label class="custom-control mb-3 custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <div class="custom-control-label">
-                                Add to compare
-                            </div>
-                        </label>
-
-                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-
-                    </figcaption>
-                </figure>
-            </div> <!-- col.// -->
-
-            <div class="col-md-3">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <img src="~/content/images/items/4.jpg">
-                    </div> <!-- img-wrap.// -->
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title mb-2">Cheap and Best demo clothe with latest Fashion styles for Men</a>
-                        <div class="price-wrap">
-                            <span class="price">$325.00-$390.00</span>
-                            <small class="text-muted">/per bag</small>
-                        </div> <!-- price-wrap.// -->
-
-                        <p class="mb-2"> 2 Pieces  <small class="text-muted">(Min Order)</small></p>
-
-                        <p class="text-muted ">Guangzhou Yichuang Electronic Co</p>
-
-                        <hr>
-
-                        <p class="mb-3">
-                            <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                            <span class="tag"> 4 Years </span>
-                            <span class="tag"> 60 reviews </span>
-                            <span class="tag"> China </span>
-                        </p>
-
-                        <label class="custom-control mb-3 custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <div class="custom-control-label">
-                                Add to compare
-                            </div>
-                        </label>
-
-                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-
-                    </figcaption>
-                </figure>
-            </div> <!-- col.// -->
-
-            <div class="col-md-3">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <img src="~/content/images/items/5.jpg">
-                    </div> <!-- img-wrap.// -->
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title mb-2">Cheap and Best demo clothe with latest Fashion styles for Men</a>
-                        <div class="price-wrap">
-                            <span class="price">$325.00-$390.00</span>
-                            <small class="text-muted">/per bag</small>
-                        </div> <!-- price-wrap.// -->
-
-                        <p class="mb-2"> 2 Pieces  <small class="text-muted">(Min Order)</small></p>
-
-                        <p class="text-muted ">Guangzhou Yichuang Electronic Co</p>
-
-                        <hr>
-
-                        <p class="mb-3">
-                            <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                            <span class="tag"> 4 Years </span>
-                            <span class="tag"> 60 reviews </span>
-                            <span class="tag"> China </span>
-                        </p>
-
-                        <label class="custom-control mb-3 custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <div class="custom-control-label">
-                                Add to compare
-                            </div>
-                        </label>
-
-                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-
-                    </figcaption>
-                </figure>
-            </div> <!-- col.// -->
-
-            <div class="col-md-3">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <img src="~/content/images/items/6.jpg">
-                    </div> <!-- img-wrap.// -->
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title mb-2">Cheap and Best demo clothe with latest Fashion styles for Men</a>
-                        <div class="price-wrap">
-                            <span class="price">$325.00-$390.00</span>
-                            <small class="text-muted">/per bag</small>
-                        </div> <!-- price-wrap.// -->
-
-                        <p class="mb-2"> 2 Pieces  <small class="text-muted">(Min Order)</small></p>
-
-                        <p class="text-muted ">Guangzhou Electronic Co</p>
-
-                        <hr>
-
-                        <p class="mb-3">
-                            <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                            <span class="tag"> 4 Years </span>
-                            <span class="tag"> 60 reviews </span>
-                            <span class="tag"> China </span>
-                        </p>
-
-                        <label class="custom-control mb-3 custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <div class="custom-control-label">
-                                Add to compare
-                            </div>
-                        </label>
-
-                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-
-                    </figcaption>
-                </figure>
-            </div> <!-- col.// -->
-
-            <div class="col-md-3">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <img src="~/content/images/items/15.jpg">
-                    </div> <!-- img-wrap.// -->
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title mb-2">Cheap and Best demo clothe with latest Fashion styles for Men</a>
-                        <div class="price-wrap">
-                            <span class="price">$325.00-$390.00</span>
-                            <small class="text-muted">/per bag</small>
-                        </div> <!-- price-wrap.// -->
-
-                        <p class="mb-2"> 2 Pieces  <small class="text-muted">(Min Order)</small></p>
-
-                        <p class="text-muted ">Pro Electronic Ltd</p>
-
-                        <hr>
-
-                        <p class="mb-3">
-                            <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                            <span class="tag"> 4 Years </span>
-                            <span class="tag"> 60 reviews </span>
-                            <span class="tag"> China </span>
-                        </p>
-
-                        <label class="custom-control mb-3 custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <div class="custom-control-label">
-                                Add to compare
-                            </div>
-                        </label>
-
-                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-
-                    </figcaption>
-                </figure>
-            </div> <!-- col.// -->
-
-            <div class="col-md-3">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <img src="~/content/images/items/1.jpg">
-                    </div> <!-- img-wrap.// -->
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title mb-2">Cheap and Best demo clothe with latest Fashion styles for Men</a>
-                        <div class="price-wrap">
-                            <span class="price">$325.00-$390.00</span>
-                            <small class="text-muted">/per bag</small>
-                        </div> <!-- price-wrap.// -->
-
-                        <p class="mb-2"> 2 Pieces  <small class="text-muted">(Min Order)</small></p>
-
-                        <p class="text-muted ">Guangzhou Yichuang Electronic Co</p>
-
-                        <hr>
-
-                        <p class="mb-3">
-                            <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                            <span class="tag"> 4 Years </span>
-                            <span class="tag"> 60 reviews </span>
-                            <span class="tag"> China </span>
-                        </p>
-
-                        <label class="custom-control mb-3 custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <div class="custom-control-label">
-                                Add to compare
-                            </div>
-                        </label>
-
-                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-
-                    </figcaption>
-                </figure>
-            </div> <!-- col.// -->
-
-            <div class="col-md-3">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <span class="badge badge-danger"> NEW </span>
-                        <img src="~/content/images/items/2.jpg">
-                    </div> <!-- img-wrap.// -->
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title mb-2">Cheap and Best demo clothe with latest Fashion styles for Men</a>
-                        <div class="price-wrap">
-                            <span class="price">$325.00-$390.00</span>
-                            <small class="text-muted">/per bag</small>
-                        </div> <!-- price-wrap.// -->
-
-                        <p class="mb-2"> 2 Pieces  <small class="text-muted">(Min Order)</small></p>
-
-                        <p class="text-muted ">Guangzhou Yichuang Electronic Co</p>
-
-                        <hr>
-
-                        <p class="mb-3">
-                            <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                            <span class="tag"> 4 Years </span>
-                            <span class="tag"> 60 reviews </span>
-                            <span class="tag"> China </span>
-                        </p>
-
-                        <label class="custom-control mb-3 custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <div class="custom-control-label">
-                                Add to compare
-                            </div>
-                        </label>
-
-                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-
-                    </figcaption>
-                </figure>
-            </div> <!-- col.// -->
-
-            <div class="col-md-3">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <span class="badge badge-danger"> NEW </span>
-                        <img src="~/content/images/items/3.jpg">
-                    </div> <!-- img-wrap.// -->
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title mb-2">Cheap and Best demo clothe with latest Fashion styles for Men</a>
-                        <div class="price-wrap">
-                            <span class="price">$325.00-$390.00</span>
-                            <small class="text-muted">/per bag</small>
-                        </div> <!-- price-wrap.// -->
-
-                        <p class="mb-2"> 2 Pieces  <small class="text-muted">(Min Order)</small></p>
-
-                        <p class="text-muted ">Guangzhou Yichuang Electronic Co</p>
-
-                        <hr>
-
-                        <p class="mb-3">
-                            <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                            <span class="tag"> 4 Years </span>
-                            <span class="tag"> 60 reviews </span>
-                            <span class="tag"> China </span>
-                        </p>
-
-                        <label class="custom-control mb-3 custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <div class="custom-control-label">
-                                Add to compare
-                            </div>
-                        </label>
-
-                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-
-                    </figcaption>
-                </figure>
-            </div> <!-- col.// -->
-
-            <div class="col-md-3">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <span class="badge badge-danger"> NEW </span>
-                        <img src="~/content/images/items/4.jpg">
-                    </div> <!-- img-wrap.// -->
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title mb-2">Cheap and Best demo clothe with latest Fashion styles for Men</a>
-                        <div class="price-wrap">
-                            <span class="price">$325.00-$390.00</span>
-                            <small class="text-muted">/per bag</small>
-                        </div> <!-- price-wrap.// -->
-
-                        <p class="mb-2"> 2 Pieces  <small class="text-muted">(Min Order)</small></p>
-
-                        <p class="text-muted ">Guangzhou Yichuang Electronic Co</p>
-
-                        <hr>
-
-                        <p class="mb-3">
-                            <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                            <span class="tag"> 4 Years </span>
-                            <span class="tag"> 60 reviews </span>
-                            <span class="tag"> China </span>
-                        </p>
-
-                        <label class="custom-control mb-3 custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <div class="custom-control-label">
-                                Add to compare
-                            </div>
-                        </label>
-
-                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-
-                    </figcaption>
-                </figure>
-            </div> <!-- col.// -->
-
-            <div class="col-md-3">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap">
-                        <span class="badge badge-danger"> NEW </span>
-                        <img src="~/content/images/items/1.jpg">
-                    </div> <!-- img-wrap.// -->
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title mb-2">Cheap and Best demo clothe with latest Fashion styles for Men</a>
-                        <div class="price-wrap">
-                            <span class="price">$325.00-$390.00</span>
-                            <small class="text-muted">/per bag</small>
-                        </div> <!-- price-wrap.// -->
-
-                        <p class="mb-2"> 2 Pieces  <small class="text-muted">(Min Order)</small></p>
-
-                        <p class="text-muted ">Guangzhou Yichuang Electronic Co</p>
-
-                        <hr>
-
-                        <p class="mb-3">
-                            <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                            <span class="tag"> 4 Years </span>
-                            <span class="tag"> 60 reviews </span>
-                            <span class="tag"> China </span>
-                        </p>
-
-                        <label class="custom-control mb-3 custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <div class="custom-control-label">
-                                Add to compare
-                            </div>
-                        </label>
-
-                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-
-                    </figcaption>
-                </figure>
-            </div> <!-- col.// -->
         </div> <!-- row end.// -->
 
 
         <nav class="mb-4" aria-label="Page navigation sample">
             <ul class="pagination">
-                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                @if (Model.HasPreviousPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("AllProduct", new { page = Model.PageNumber - 1, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort })">
+                            Previous
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item disabled">
+                        <span class="page-link">Previous</span>
+                    </li>
+                }
+
+                @for (int i = 1; i <= Model.PageCount; i++)
+                {
+                    if (i == Model.PageNumber)
+                    {
+                        <li class="page-item active">
+                            <span class="page-link">@i</span>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="@Url.Action("AllProduct", new { page = i, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort })">
+                                @i
+                            </a>
+                        </li>
+                    }
+                }
+
+                @if (Model.HasNextPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("AllProduct", new { page = Model.PageNumber + 1, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort })">
+                            Next
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item disabled">
+                        <span class="page-link">Next</span>
+                    </li>
+                }
             </ul>
         </nav>
+
 
 
         <div class="box text-center">

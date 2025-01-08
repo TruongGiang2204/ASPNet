@@ -4,17 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cb298f49f3954fcc8dfddaf5cffe0444" Name="Diagram1">
-        <EntityTypeShape EntityType="WebASPModel.Brand" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebASPModel.Category" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebASPModel.Order" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebASPModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebASPModel.sysdiagram" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebASPModel.User" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
-        <AssociationConnector Association="WebASPModel.FK_Product_Brand" ManuallyRouted="false" />
-        <AssociationConnector Association="WebASPModel.FK_Product_Category" ManuallyRouted="false" />
-        <AssociationConnector Association="WebASPModel.FK_Order_Product" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="WebASPModel.OrderDetaill" Width="1.5" PointX="8" PointY="0.75" />
+      <Diagram DiagramId="e48d73e817ff43bb893d8be68b5a013c" Name="Diagram1">
+        <EntityTypeShape EntityType="WebASPNetModel.Brand" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebASPNetModel.Category" Width="1.5" PointX="5.375" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebASPNetModel.OrderDetail" Width="1.5" PointX="5.125" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebASPNetModel.Order" Width="1.5" PointX="10.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebASPNetModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebASPNetModel.sysdiagram" Width="1.5" PointX="12.875" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebASPNetModel.User" Width="1.5" PointX="8.25" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="WebASPNetModel.FK_Product_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="WebASPNetModel.FK_Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="WebASPNetModel.FK_OrderDetail_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="WebASPNetModel.FK_OrderDetail_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="WebASPNetModel.FK_Orders_Users" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

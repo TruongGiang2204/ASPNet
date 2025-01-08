@@ -1,9 +1,63 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Thanh toán thành công";
 }
 
-<h2>Thanh toán thành công</h2>
+<div class="success-container">
+    <div class="success-box">
+        <h2 class="success-title">Thanh toán thành công!</h2>
+        <p class="success-message">Cảm ơn bạn đã mua hàng tại cửa hàng của chúng tôi.</p>
+        <a href="@Url.Action("Index", "Home")" class="continue-shopping-btn">Tiếp tục mua hàng</a>
+    </div>
+</div>
 
-<p><a href="@Url.Action("Index","Home")>Tiếp tục mua hàng</a></p>
+<style>
+    /* Toàn bộ trang */
+    .success-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
+        margin: 0;
+    }
 
+    /* Hộp thông báo */
+    .success-box {
+        background-color: #ffffff;
+        padding: 20px 40px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Tiêu đề */
+    .success-title {
+        font-size: 24px;
+        color: #28a745;
+        margin-bottom: 10px;
+    }
+
+    /* Tin nhắn */
+    .success-message {
+        font-size: 16px;
+        color: #333333;
+        margin-bottom: 20px;
+    }
+
+    /* Nút tiếp tục mua hàng */
+    .continue-shopping-btn {
+        display: inline-block;
+        text-decoration: none;
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+        .continue-shopping-btn:hover {
+            background-color: #0056b3;
+        }
+</style>

@@ -17,29 +17,29 @@ namespace webdemo.Context
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.Orders = new HashSet<Order>();
+            this.OrderDetails = new HashSet<OrderDetail>();
         }
     
-        public int id { get; set; }
+        public int Id { get; set; }
         public Nullable<int> CategoryId { get; set; }
         public Nullable<int> BrandId { get; set; }
-        public string Name { get; set; }
         public Nullable<int> TypeId { get; set; }
         public string ShortDes { get; set; }
+        public string Name { get; set; }
         public string FullDescription { get; set; }
         public Nullable<double> Price { get; set; }
         public Nullable<double> PriceDiscount { get; set; }
         public string Slug { get; set; }
+        public string Image { get; set; }
         public Nullable<bool> Deleted { get; set; }
         public Nullable<bool> ShowOnHomePage { get; set; }
         public Nullable<int> DisplayOrder { get; set; }
         public Nullable<System.DateTime> CreatedOnUtc { get; set; }
         public Nullable<System.DateTime> UpdatedOnUtc { get; set; }
-        public string Image { get; set; }
     
         public virtual Brand Brand { get; set; }
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

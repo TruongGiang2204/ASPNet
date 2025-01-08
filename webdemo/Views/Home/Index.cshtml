@@ -7,7 +7,7 @@
 }
 
 <body>
-
+    
     <div class="container">
         <!-- ========================= SECTION MAIN  ========================= -->
         <section class="section-main padding-y">
@@ -16,7 +16,7 @@
 
                     <div class="row">
                         <aside class="col-lg col-md-3 flex-lg-grow-0">
-                            <h6>MY MARKETS</h6>
+                            <h6>DANH MỤC</h6>
                             <nav class="nav-home-aside">
                                 <ul class="menu-category">
                                     @foreach (var category in categories.Take(8))
@@ -112,11 +112,11 @@
                     {
                         <div class="col-md col-6">
                             <figure class="card-product-grid card-sm">
-                                <a href="@Url.Action("Detail", "Product", new { id = item.id })" class="img-wrap">
+                                <a href="@Url.Action("Detail", "Product", new { id = item.Id })" class="img-wrap">
                                     <img src="~/Content/images/products/@item.Image">
                                 </a>
                                 <div class="text-wrap p-3">
-                                    <a href="@Url.Action("Detail", "Product" , new { id = item.id }))" class="title">@item.Name</a>
+                                    <a href="@Url.Action("Detail", "Product" , new { id = item.Id }))" class="title">@item.Name</a>
                                     <span class="badge badge-danger"> -20% </span>
                                 </div>
                             </figure>
@@ -130,7 +130,7 @@
         <!-- =============== SECTION 1 =============== -->
         <section class="padding-bottom">
             <header class="section-heading heading-line">
-                <h4 class="title-section text-uppercase">Thời trang </h4>
+                <h4 class="title-section text-uppercase">Điện thoại</h4>
             </header>
 
             <div class="card card-home-category">
@@ -150,7 +150,7 @@
                             @foreach (var item in Model.ListProduct.Take(8))
                             {
                                 <li class="col-6 col-lg-3 col-md-4">
-                                    <a href="#" class="item">
+                                    <a href="@Url.Action("Detail", "Product", new { id = item.Id })" class="item">
                                         <div class="card-body">
                                             <h6 class="title">@item.FullDescription</h6>
                                             <img class="img-sm float-right" src="~/Content/images/products/@item.Image">
@@ -187,8 +187,8 @@
                         <ul class="row no-gutters bordered-cols">
                             @foreach (var item in Model.ListProduct.Take(8))
                             {
-                                <li class="col-6 col-lg-3 col-md-4">
-                                    <a href="#" class="item">
+                                <li class="col-6 col-lg-3 col-md-4" >
+                                    <a href="@Url.Action("Detail", "Product", new { id = item.Id })" class="item">
                                         <div class="card-body">
                                             <h6 class="title">@item.FullDescription</h6>
                                             <img class="img-sm float-right" src="~/Content/images/products/@item.Image">
@@ -278,11 +278,11 @@
                 {
                     <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                         <div class="card card-sm card-product-grid">
-                            <a href="@Url.Action("Detail", "Product", new { id = product.id })" class="img-wrap">
+                            <a href="@Url.Action("Detail", "Product", new { id = product.Id })" class="img-wrap">
                                 <img src="~/Content/images/products/@product.Image" alt="@product.Name">
                             </a>
                             <figcaption class="info-wrap">
-                                <a href="@Url.Action("Detail", "Product", new { id = product.id })" class="title">@product.Name</a>
+                                <a href="@Url.Action("Detail", "Product", new { id = product.Id })" class="title">@product.Name</a>
                                 <div class="price mt-1">
                                     @Convert.ToDecimal(product.Price).ToString("C0", System.Globalization.CultureInfo.CreateSpecificCulture("vi-VN"))
                                 </div> <!-- price-wrap.// -->
@@ -368,32 +368,21 @@
         <article class="my-4">
             <img src="~/Content/images/banners/ad-sm.png" class="w-100">
         </article>
+        @if (Session["FullName"] != null)
+        {
+            <p>FullName: @Session["FullName"]</p>
+            <p>Email: @Session["Email"]</p>
+            <p>User ID: @Session["idUser"]</p>
+        }
+        else
+        {
+            <p>Chưa đăng nhập!</p>
+        }
+
     </div>
     <!-- container end.// -->
     <!-- ========================= SECTION SUBSCRIBE  ========================= -->
-    <section class="section-subscribe padding-y-lg">
-        <div class="container">
 
-            <p class="pb-2 text-center text-white">Delivering the latest product trends and industry news straight to your inbox</p>
-
-            <div class="row justify-content-md-center">
-                <div class="col-lg-5 col-md-6">
-                    <form class="form-row">
-                        <div class="col-md-8 col-7">
-                            <input class="form-control border-0" placeholder="Your Email" type="email">
-                        </div> <!-- col.// -->
-                        <div class="col-md-4 col-5">
-                            <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Subscribe </button>
-                        </div> <!-- col.// -->
-                    </form>
-                    <small class="form-text text-white-50">We’ll never share your email address with a third-party. </small>
-                </div> <!-- col-md-6.// -->
-            </div>
-
-
-        </div>
-    </section>
-    <!-- ========================= SECTION SUBSCRIBE END// ========================= -->
 
 
 

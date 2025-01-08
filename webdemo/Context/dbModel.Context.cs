@@ -13,10 +13,10 @@ namespace webdemo.Context
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WebASPEntities2 : DbContext
+    public partial class WebASPNetEntities : DbContext
     {
-        public WebASPEntities2()
-            : base("name=WebASPEntities2")
+        public WebASPNetEntities()
+            : base("name=WebASPNetEntities")
         {
         }
     
@@ -27,10 +27,10 @@ namespace webdemo.Context
     
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<OrderDetaill> OrderDetaills { get; set; }
     }
 }

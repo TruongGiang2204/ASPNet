@@ -28,7 +28,7 @@ namespace webdemo.Context
         public Nullable<int> DisplayOrder { get; set; }
         public Nullable<bool> Deleted { get; set; }
         public Nullable<System.DateTime> CreatedOnUtc { get; set; }
-        public Nullable<System.DateTime> UpdatedOnUtc { get; set; }
+        public Nullable<System.DateTime> UpdatedOnutc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }

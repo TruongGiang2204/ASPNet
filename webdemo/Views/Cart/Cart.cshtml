@@ -52,7 +52,7 @@
                             {
                                 foreach (var item in Model)
                                 {
-                                    <tr id="product-@item.Product.id">
+                                    <tr id="product-@item.Product.Id">
                                         <td>
                                             <figure class="itemside">
                                                 <div class="aside"><img src="~/Content/images/products/@item.Product.Image" class="img-sm"></div>
@@ -70,7 +70,7 @@
                                             </div> <!-- price-wrap .// -->
                                         </td>
                                         <td class="text-right">
-                                            <input type="hidden" value="@item.Product.id" id="productid" />
+                                            <input type="hidden" value="@item.Product.Id" id="productid" />
                                             <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip"> <i class="fa fa-heart"></i></a>
 
                                             <a href="" class="btn btn-light" id="removecart"> Remove</a>

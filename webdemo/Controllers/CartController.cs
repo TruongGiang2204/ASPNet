@@ -10,7 +10,7 @@ namespace webdemo.Controllers
 {
     public class CartController : Controller
     {
-        WebASPEntities2 objWebASPEntities = new WebASPEntities2();
+        WebASPNetEntities objWebASPEntities = new WebASPNetEntities();
         public ActionResult Cart()
         {
             return View((List<CartModel>)Session["cart"]);
@@ -49,7 +49,7 @@ namespace webdemo.Controllers
         {
             List<CartModel> cart = (List<CartModel>)Session["cart"];
             for (int i = 0; i < cart.Count; i++)
-                if (cart[i].Product.id.Equals(id))
+                if (cart[i].Product.Id.Equals(id))
                     return i;
             return -1;
         }

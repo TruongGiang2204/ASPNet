@@ -12,11 +12,14 @@ namespace webdemo.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderDetaill
+    public partial class OrderDetail
     {
         public int Id { get; set; }
         public Nullable<int> OrderId { get; set; }
         public Nullable<int> ProductId { get; set; }
-        public int Quantity { get; set; }
+        public Nullable<int> Quantity { get; set; }
+    
+        public virtual Order Order { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

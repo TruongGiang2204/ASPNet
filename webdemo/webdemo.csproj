@@ -52,6 +52,12 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -132,40 +138,40 @@
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Context\Brand.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Category.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\dbModel.Context.cs">
+    <Compile Include="Context\DBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbModel.Context.tt</DependentUpon>
+      <DependentUpon>DBModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\dbModel.cs">
+    <Compile Include="Context\DBModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\dbModel.Designer.cs">
+    <Compile Include="Context\DBModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbModel.edmx</DependentUpon>
+      <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Context\Order.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\OrderDetaill.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+    <Compile Include="Context\OrderDetail.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\Product.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\sysdiagram.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\User.cs">
-      <DependentUpon>dbModel.tt</DependentUpon>
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -2145,20 +2151,47 @@
     <Content Include="Content\images\posts\2.jpg" />
     <Content Include="Content\images\posts\3.jpg" />
     <Content Include="Content\images\posts\4.jpg" />
+    <Content Include="Content\images\products\asus-rog-zephyrus-g14.jpg" />
+    <Content Include="Content\images\products\asus-vivobook-15.jpg" />
+    <Content Include="Content\images\products\asus-zenbook-14.jpg" />
+    <Content Include="Content\images\products\dell-alienware-m15.jpg" />
+    <Content Include="Content\images\products\dell-inspiron-14.jpg" />
+    <Content Include="Content\images\products\dell-latitude-7420.jpg" />
+    <Content Include="Content\images\products\dell-xps-15.jpg" />
+    <Content Include="Content\images\products\iphone14plus.jpg" />
+    <Content Include="Content\images\products\iphonese2022.jpg" />
+    <Content Include="Content\images\products\iphone12.jpg" />
+    <Content Include="Content\images\products\iphone13pro.jpg" />
     <Content Include="Content\images\products\iphone14promax.jpg" />
+    <Content Include="Content\images\products\lenovo-ideapad-3.jpg" />
+    <Content Include="Content\images\products\lenovo-legion-5.jpg" />
+    <Content Include="Content\images\products\lenovo-tab-m10-plus.jpg" />
+    <Content Include="Content\images\products\lenovo-tab-p11-pro.jpg" />
+    <Content Include="Content\images\products\lenovo-thinkpad-x1-carbon.jpg" />
+    <Content Include="Content\images\products\lenovo-yoga-tab-13.jpg" />
+    <Content Include="Content\images\products\oppo-a78.jpg" />
+    <Content Include="Content\images\products\oppo-find-x6-pro.jpg" />
     <Content Include="Content\images\products\oppo-findx6pro.jpg" />
+    <Content Include="Content\images\products\oppo-reno-10.jpg" />
+    <Content Include="Content\images\products\samsung-s22.jpg" />
     <Content Include="Content\images\products\samsung-s23ultra.jpg" />
+    <Content Include="Content\images\products\samsung-zflip4.jpg" />
+    <Content Include="Content\images\products\samsung-zfold4.jpg" />
     <Content Include="Content\images\products\vivo-x90pro.jpg" />
+    <Content Include="Content\images\products\xiaomi-13-pro.jpg" />
+    <Content Include="Content\images\products\xiaomi-poco-x5-pro.jpg" />
+    <Content Include="Content\images\products\xiaomi-redmi-note-12.jpg" />
     <Content Include="Content\images\products\xiaomi13pro.jpg" />
-    <Content Include="Context\dbModel.Context.tt">
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Context\DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbModel.edmx</DependentUpon>
-      <LastGenOutput>dbModel.Context.cs</LastGenOutput>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Context\dbModel.tt">
+    <Content Include="Context\DBModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbModel.edmx</DependentUpon>
-      <LastGenOutput>dbModel.cs</LastGenOutput>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome\css\all.css" />
@@ -2293,14 +2326,18 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
-    <EntityDeploy Include="Context\dbModel.edmx">
+    <EntityDeploy Include="Context\DBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Context\dbModel.edmx.diagram">
-      <DependentUpon>dbModel.edmx</DependentUpon>
+    <Content Include="Context\DBModel.edmx.diagram">
+      <DependentUpon>DBModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\Product\ProductList.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
