@@ -1,0 +1,91 @@
+﻿@model webdemo.Context.Category
+
+@{
+    ViewBag.Title = "Create Category";
+}
+
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Create Category</h2>
+
+    @using (Html.BeginForm("Create", "Category", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Category Information</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <!-- Category Name -->
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Name, "Category Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Category Image -->
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Image, "Category Image", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" name="Image" class="form-control" />
+                </div>
+            </div>
+
+            <!-- Slug -->
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Slug, "Slug", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Slug, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Show On Home Page -->
+            <div class="form-group row">
+                @Html.LabelFor(model => model.ShowOnHomePage, "Show on Home Page", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.ShowOnHomePage)
+                        @Html.ValidationMessageFor(model => model.ShowOnHomePage, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <!-- Display Order -->
+            <div class="form-group row">
+                @Html.LabelFor(model => model.DisplayOrder, "Display Order", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DisplayOrder, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DisplayOrder, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+           
+
+            <!-- Created On -->
+            <div class="form-group row">
+                @Html.LabelFor(model => model.CreatedOnUtc, "Created On", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.CreatedOnUtc, "{0:yyyy-MM-ddTHH:mm}", new { @class = "form-control", type = "datetime-local" })
+                    @Html.ValidationMessageFor(model => model.CreatedOnUtc, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+           
+
+            <!-- Submit Button -->
+            <div class="form-group row">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create Category" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="text-center mt-3">
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+</div>

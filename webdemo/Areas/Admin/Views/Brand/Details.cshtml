@@ -1,0 +1,125 @@
+﻿@model webdemo.Context.Brand
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    /* CSS cho Brand */
+    .brand-details {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    h4 {
+        color: #007bff;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    .brand-details dl {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+    }
+
+    .brand-details dt, .brand-details dd {
+        width: 48%; /* Đặt độ rộng cho các cặp dt và dd */
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .brand-details dt {
+        font-weight: bold;
+        color: #555;
+    }
+
+    .brand-details dd {
+        font-size: 1rem;
+        color: #777;
+    }
+
+    .action-links {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .action-links a {
+        text-decoration: none;
+        color: #007bff;
+        margin: 0 15px;
+        padding: 10px 20px;
+        border: 1px solid #007bff;
+        border-radius: 5px;
+        background-color: #ffffff;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .action-links a:hover {
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Responsive for smaller screens */
+  
+        .brand-details dl {
+            flex-direction: column;
+        }
+
+        .brand-details dt, .brand-details dd {
+            width: 100%;
+        }
+    
+</style>
+
+<h2 style="margin-left: 10px">Chi tiết thương hiện</h2>
+
+<div class="brand-details">
+    <h4 style="margin-left: 10px">Thương hiệu</h4>
+    <hr />
+    <dl>
+        <dt>Tên thương hiệu</dt>
+        <dd>@Html.DisplayFor(model => model.Name)</dd>
+
+        <dt>Hình ảnh thương hiệu</dt>
+        <dd>@Html.DisplayFor(model => model.Image)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Slug)</dt>
+        <dd>@Html.DisplayFor(model => model.Slug)</dd>
+
+        <dt>Hiển thị trang chủ</dt>
+        <dd>@Html.DisplayFor(model => model.ShowOnHomePage)</dd>
+
+        <dt>Thứ tự</dt>
+        <dd>@Html.DisplayFor(model => model.DisplayOrder)</dd>
+
+        <dt>Ngày tạo</dt>
+        <dd>@Html.DisplayFor(model => model.CreatedOnUtc)</dd>
+
+        <dt>Ngày cập nhật</dt>
+        <dd>@Html.DisplayFor(model => model.UpdatedOnUtc)</dd>
+
+        <dt>Trạng thái thùng rác</dt>
+        <dd>@Html.DisplayFor(model => model.Deleted)</dd>
+    </dl>
+</div>
+
+<div class="action-links">
+    <p>
+        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Quay lại", "Index")
+    </p>
+</div>

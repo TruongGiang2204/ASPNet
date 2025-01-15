@@ -79,20 +79,35 @@ namespace webdemo.Controllers
             {
                 var f_password = GetMD5(password);
                 var data = objWebASPEntities.Users.Where(s => s.Email.Equals(email) && s.Password.Equals(f_password)).ToList();
+
                 if (data.Count() > 0)
                 {
-                    // Add session
-                    Session["FullName"] = data.FirstOrDefault().LastName  + " " + data.FirstOrDefault().FirstName;
-                    Session["Email"] = data.FirstOrDefault().Email;
-                    Session["idUser"] = data.FirstOrDefault().Id;
-                    //Session["isUser"] = true;
+                    // Get the user data
+                    var user = data.FirstOrDefault();
+
+                    // Add session variables
+                    Session["FullName"] = user.LastName + " " + user.FirstName;
+                    Session["Email"] = user.Email;
+                    Session["idUser"] = user.Id;
+                    Session["IsAdmin"] = user.IsAdmin; // Store IsAdmin flag in session
 
                     // Log session values for debugging
                     System.Diagnostics.Debug.WriteLine("Session FullName: " + Session["FullName"]);
                     System.Diagnostics.Debug.WriteLine("Session Email: " + Session["Email"]);
                     System.Diagnostics.Debug.WriteLine("Session idUser: " + Session["idUser"]);
+                    System.Diagnostics.Debug.WriteLine("Session IsAdmin: " + Session["IsAdmin"]);
 
-                    return RedirectToAction("Index", "Home");
+                    // Redirect to appropriate page based on IsAdmin flag
+                    if (user.IsAdmin.HasValue && user.IsAdmin.Value)
+                    {
+                        // If user is an admin, redirect to Admin Dashboard
+                        return RedirectToAction("HomeAdmin", "Admin");
+                    }
+                    else
+                    {
+                        // If user is not an admin, redirect to regular user home page
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
                 else
                 {
@@ -102,6 +117,7 @@ namespace webdemo.Controllers
             }
             return View();
         }
+
 
 
 

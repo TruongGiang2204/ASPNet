@@ -11,7 +11,8 @@ namespace webdemo.Context
 {
     using System;
     using System.Collections.Generic;
-    
+    using webdemo.Context.Enums;
+
     public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

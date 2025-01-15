@@ -11,7 +11,8 @@ namespace webdemo.Context
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web;
+
     public partial class Brand
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -32,5 +33,7 @@ namespace webdemo.Context
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
+        public HttpPostedFileBase ImageUpload { get; set; }
+
     }
 }

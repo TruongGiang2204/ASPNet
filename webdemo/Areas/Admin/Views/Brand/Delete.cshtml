@@ -1,0 +1,110 @@
+﻿@model webdemo.Context.Brand
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<style>
+    .brand-details {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .detail-row {
+        display: flex;
+        margin-bottom: 15px;
+        align-items: center;
+    }
+
+        .detail-row dt {
+            width: 150px;
+            font-weight: bold;
+        }
+
+        .detail-row dd {
+            margin: 0;
+            flex: 1;
+            font-size: 1rem;
+        }
+
+    .action-links {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .action-links a {
+            text-decoration: none;
+            color: #007bff;
+            margin: 0 10px;
+        }
+
+            .action-links a:hover {
+                text-decoration: underline;
+            }
+
+    .form-actions {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .form-actions input {
+            margin-right: 10px;
+        }
+</style>
+
+<h2 style="margin-left: 10px">Xóa sản phẩm</h2>
+
+<h3 style="margin-left: 10px">Bạn có chắc chắn muốn xóa thương hiệu này không?</h3>
+
+<div class="brand-details">
+    <div class="detail-row">
+        <dt>Tên thương hiệu</dt>
+        <dd>@Html.DisplayFor(model => model.Name)</dd>
+    </div>
+
+    <div class="detail-row">
+        <dt>Hình ảnh thương hiệu</dt>
+        <dd>@Html.DisplayFor(model => model.Image)</dd>
+    </div>
+
+    <div class="detail-row">
+        <dt>@Html.DisplayNameFor(model => model.Slug)</dt>
+        <dd>@Html.DisplayFor(model => model.Slug)</dd>
+    </div>
+
+    <div class="detail-row">
+        <dt>Hiển thị trang chủ</dt>
+        <dd>@Html.DisplayFor(model => model.ShowOnHomePage)</dd>
+    </div>
+
+    <div class="detail-row">
+        <dt>Thứ tự</dt>
+        <dd>@Html.DisplayFor(model => model.DisplayOrder)</dd>
+    </div>
+
+    <div class="detail-row">
+        <dt>Ngày tạo</dt>
+        <dd>@Html.DisplayFor(model => model.CreatedOnUtc)</dd>
+    </div>
+
+    <div class="detail-row">
+        <dt>Ngày cập nhật</dt>
+        <dd>@Html.DisplayFor(model => model.UpdatedOnUtc)</dd>
+    </div>
+
+    <div class="detail-row">
+        <dt>Trạng thái thùng rác</dt>
+        <dd>@Html.DisplayFor(model => model.Deleted)</dd>
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Xóa" class="btn btn-default" /> |
+        @Html.ActionLink("Quay lại", "Index")
+    </div>
+}

@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+
+    <!-- CSS -->
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-horizontal {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+            .form-horizontal h4 {
+                font-size: 1.5rem;
+                color: #333;
+            }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+            .form-group .control-label {
+                font-weight: bold;
+                text-align: right;
+            }
+
+            .form-group .col-md-10 {
+                margin-left: 20px;
+            }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: 1px solid #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border: 1px solid #0056b3;
+            }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-5 {
+            margin-top: 3rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem;
+        }
+
+        .text-danger {
+            color: #dc3545;
+        }
+
+        .checkbox {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Create User</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-horizontal">
+                <h4>User Information</h4>
+                <hr />
+
+                <div class="form-group row">
+                    <label for="FirstName" class="control-label col-md-2">First Name</label>
+                    <div class="col-md-10">
+                        <input type="text" name="FirstName" class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="LastName" class="control-label col-md-2">Last Name</label>
+                    <div class="col-md-10">
+                        <input type="text" name="LastName" class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Email" class="control-label col-md-2">Email</label>
+                    <div class="col-md-10">
+                        <input type="email" name="Email" class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Password" class="control-label col-md-2">Password</label>
+                    <div class="col-md-10">
+                        <input type="password" name="Password" class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create User" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="text-center mt-3">
+        <a href="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+
+</body>
+</html>

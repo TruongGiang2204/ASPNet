@@ -1,0 +1,98 @@
+﻿@model IEnumerable<webdemo.Context.Order>
+
+@{
+    ViewBag.Title = "Quản lý đơn hàng";
+}
+
+<h2>Quản lý đơn hàng</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn-success">Thêm đơn hàng</a>
+</p>
+
+<table class="table table-bordered order-table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.name)</th>
+            <th>@Html.DisplayNameFor(model => model.Status)</th>
+            <th>@Html.DisplayNameFor(model => model.CreatedOnUtc)</th>
+            <th>@Html.DisplayNameFor(model => model.User.FirstName)</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                <td>@Html.DisplayFor(modelItem => item.CreatedOnUtc)</td>
+                <td>@Html.DisplayFor(modelItem => item.User.FirstName)</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.Id })" title="Sửa">
+                        <i class="fas fa-edit"></i>
+                    </a> |
+                    <a href="@Url.Action("Details", new { id = item.Id })" title="Chi tiết">
+                        <i class="fas fa-info-circle"></i>
+                    </a> |
+                    <a href="@Url.Action("Delete", new { id = item.Id })" onclick="return confirm('Bạn có chắc chắn muốn xóa đơn hàng này không?')" title="Xóa">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    /* Nút thêm đơn hàng */
+    .btn-success {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        text-decoration: none;
+    }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+    /* Bảng đơn hàng */
+    .order-table {
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        .order-table th, .order-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        .order-table th {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        .order-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* Liên kết hành động */
+        .order-table a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+            .order-table a:hover {
+                text-decoration: underline;
+            }
+</style>

@@ -15,6 +15,7 @@ namespace webdemo.Controllers
 
         public ActionResult Index()
         {
+            
             // Kiểm tra trạng thái đăng nhập
             if (Session["isUser"] != null && (bool)Session["isUser"])
             {

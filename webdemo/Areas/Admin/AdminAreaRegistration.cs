@@ -12,12 +12,13 @@ namespace webdemo.Areas.Admin
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
-                "Admin_default",
-                "Admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                name: "Admin_default",
+                url: "Admin/{controller}/{action}/{id}",
+                defaults: new { action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "webdemo.Areas.Admin.Controllers" } // Chỉ định namespace
             );
         }
     }
